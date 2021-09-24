@@ -1,13 +1,5 @@
 # Shutdown Script that is called by a task
 
-if ((Get-Module -ListAvailable -Name Az.Accounts) -and (Get-Module -ListAvailable -Name Az.Compute)) {
-    Stop-MySelf
-} 
-else {
-    install-module -name Az.Accounts
-    install-module -name Az.Compute
-    Stop-MySelf
-}
 
 function Stop-MySelf () {
     Connect-AzAccount -Identity
@@ -17,3 +9,14 @@ function Stop-MySelf () {
     Stop-AzVM -Name $name -ResourceGroupName $rg
 
 }
+
+
+if ((Get-Module -ListAvailable -Name Az.Accounts) -and (Get-Module -ListAvailable -Name Az.Compute)) {
+    Stop-MySelf
+} 
+else {
+    install-module -name Az.Accounts
+    install-module -name Az.Compute
+    Stop-MySelf
+}
+
