@@ -5,17 +5,8 @@ $fileUri = @("https://raw.githubusercontent.com/henrikmotzkus/CSE-AzureVMShutdow
 
 $settings = @{"fileUris" = $fileUri};
 
-$storageAcctName = "xxxxxxx"
-$storageKey = "1234ABCD"
-$protectedSettings = @{"storageAccountName" = $storageAcctName; "storageAccountKey" = $storageKey; "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File 1_Add_Tools.ps1"};
+$protectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File installscript.ps1"};
 
 #run command
-Set-AzVMExtension -ResourceGroupName "aadjoinedhostpool" `
-    -Location "westeurope" `
-    -VMName "vm-0" `
-    -Name "buildserver1" `
-    -Publisher "Microsoft.Compute" `
-    -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.10" `
-    -Settings $settings `
-    -ProtectedSettings $protectedSettings;
+Set-AzVMExtension -ResourceGroupName "aadjoinedhostpool" -Location "westeurope" -VMName "vm-0" -Name "CSEShutdown" -ExtensionType "CustomScriptExtension" -Settings $settings -Publisher "Microsoft.Compute" -TypeHandlerVersion "1.10" -ProtectedSettings $protectedSettings
+    
