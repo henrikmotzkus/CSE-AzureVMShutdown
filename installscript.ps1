@@ -46,7 +46,7 @@ function Register-EventScript {
 }
 
 $mypath = Split-Path $MyInvocation.MyCommand.Path
-$path = $mypath + "shutdown.ps1"
+$path = $mypath + "/shutdown.ps1"
 
 $path
 Register-EventScript -eventToRegister "Shutdown" -pathToScript $path
