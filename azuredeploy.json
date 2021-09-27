@@ -14,7 +14,7 @@
               
             ],
             "tags": {
-                "displayName": "config-app"
+                "displayName": "configapp"
             },
             "properties": {
                 "publisher": "Microsoft.Compute",
