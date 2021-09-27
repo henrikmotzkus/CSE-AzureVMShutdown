@@ -50,3 +50,8 @@ $path = $mypath + "\shutdown.ps1"
 
 $path
 Register-EventScript -eventToRegister "Shutdown" -pathToScript $path
+
+
+install-module -name Az.Accounts
+install-module -name Az.Compute
+

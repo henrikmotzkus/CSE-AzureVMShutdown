@@ -7,7 +7,7 @@ function Stop-MySelf () {
     $name = $instance.compute.name
     $rg = $instance.compute.resourceGroupName
     $sub = $instance.compute.subscriptionId
-    Select-AzSubscription -Subscription "a70316fd-0761-4d1d-aa6a-743ef1133f7a"
+    #Select-AzSubscription -Subscription "a70316fd-0761-4d1d-aa6a-743ef1133f7a"
     Stop-AzVM -Name $name -ResourceGroupName $rg -Force -
 
 }
@@ -16,8 +16,8 @@ if ((Get-Module -ListAvailable -Name Az.Accounts) -and (Get-Module -ListAvailabl
     Stop-MySelf
 } 
 else {
-    install-module -name Az.Accounts
-    install-module -name Az.Compute
+    #install-module -name Az.Accounts
+    #install-module -name Az.Compute
     Stop-MySelf
 }
 
