@@ -1,0 +1,30 @@
+{
+    "apiVersion": "2018-06-01",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "virtualMachineName/config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+        "[variables('musicstoresqlName')]"
+    ],
+    "tags": {
+        "displayName": "config-app"
+    },
+    "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.10",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "timestamp":123456789
+        },
+        "protectedSettings": {
+            "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File installscript.ps1",
+            "managedIdentity" : {},
+            "fileUris": [
+                "https://raw.githubusercontent.com/henrikmotzkus/CSE-AzureVMShutdown/main/installscript.ps1",
+                "https://raw.githubusercontent.com/henrikmotzkus/CSE-AzureVMShutdown/main/shutdown.ps1"
+            ]
+        }
+    }
+}
