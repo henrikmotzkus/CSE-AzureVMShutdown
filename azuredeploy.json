@@ -7,14 +7,14 @@
     "resources": [
         {
             "apiVersion": "2018-06-01",
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "virtualMachineName/config-app",
+            "type": "Extensions",
+            "name": "shutdownscript",
             "location": "[resourceGroup().location]",
             "dependsOn": [
               
             ],
             "tags": {
-                "displayName": "configapp"
+                "displayName": "shutdownscript"
             },
             "properties": {
                 "publisher": "Microsoft.Compute",
