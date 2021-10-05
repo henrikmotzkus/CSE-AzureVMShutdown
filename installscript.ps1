@@ -51,7 +51,7 @@ $path = $mypath + "\shutdown.ps1"
 $path
 Register-EventScript -eventToRegister "Shutdown" -pathToScript $path
 
-
-install-module -name Az.Accounts
-install-module -name Az.Compute
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+install-module -name Az.Accounts -Force
+install-module -name Az.Compute -Force
 
